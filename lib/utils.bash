@@ -41,8 +41,18 @@ download_release() {
 	version="$1"
 	filename="$2"
 
-	# TODO: Adapt the release URL convention for nyx
-	url="$GH_REPO/archive/v${version}.tar.gz"
+	# TODO: Adapt the release URL convention for copa
+	# Determine SYSTEM_NAME and HARDWARE_NAME using uname
+	SYSTEM_NAME=$(uname -s | tr '[:upper:]' '[:lower:]') # Convert to lowercase
+	# Get the machine hardware name and convert x86_64 to amd64
+	# Adoopt this for macOS and other systems as needed
+	machine=$(uname -m)
+	if [ "$machine" = "x86_64" ]; then
+		HARDWARE_NAME="amd64"
+	else
+		HARDWARE_NAME="$machine"
+	fi
+	url="$GH_REPO/releases/download/v${version}/nyx-${SYSTEM_NAME}-${HARDWARE_NAME}"
 
 	echo "* Downloading $TOOL_NAME release $version..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"

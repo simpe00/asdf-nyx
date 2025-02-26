@@ -8,6 +8,8 @@
 
 # Contents
 
+- [asdf-nyx  ](#asdf-nyx--)
+- [Contents](#contents)
 - [Dependencies](#dependencies)
 - [Install](#install)
 - [Contributing](#contributing)
@@ -25,8 +27,6 @@
 Plugin:
 
 ```shell
-asdf plugin add nyx
-# or
 asdf plugin add nyx https://github.com/simpe00/asdf-nyx.git
 ```
 
