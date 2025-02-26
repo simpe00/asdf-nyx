@@ -70,12 +70,10 @@ install_version() {
 	(
 		mkdir -v -p "$install_path"
 		mkdir -v -p "$install_path/../../3.1.4"
-		mkdir -v -p "/home/peppel/.asdf/installs/nyx/3.1.5/bin"
 		echo "copy from $ASDF_DOWNLOAD_PATH to $install_path"
-		ls "$install_path/.."
-		exit 1
+
 		cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
-		exit 1
+		ls "$install_path"
 
 		# TODO: Assert nyx executable exists.
 		local tool_cmd
