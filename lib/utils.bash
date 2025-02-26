@@ -70,6 +70,7 @@ install_version() {
 	(
 		mkdir -p "$install_path"
 		echo "copy from $ASDF_DOWNLOAD_PATH to $install_path"
+		exit 1
 		cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
 		exit 1
 
