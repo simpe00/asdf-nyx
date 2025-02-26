@@ -71,6 +71,7 @@ install_version() {
 		mkdir -p "$install_path"
 		echo "copy from $ASDF_DOWNLOAD_PATH to $install_path"
 		cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
+		exit 1
 
 		# TODO: Assert nyx executable exists.
 		local tool_cmd
@@ -79,6 +80,7 @@ install_version() {
 
 		echo "$TOOL_NAME $version installation was successful!"
 	) || (
+		exit 1
 		# rm -rf "$install_path"
 		fail "An error occurred while installing $TOOL_NAME $version."
 	)
