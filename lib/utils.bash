@@ -69,11 +69,8 @@ install_version() {
 
 	(
 		mkdir -v -p "$install_path"
-		mkdir -v -p "$install_path/../../3.1.4"
-		echo "copy from $ASDF_DOWNLOAD_PATH to $install_path"
 
 		cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
-		ls "$install_path"
 
 		# Make all files in the install_path executable
         chmod +x "$install_path"/*
@@ -85,7 +82,7 @@ install_version() {
 
 		echo "$TOOL_NAME $version installation was successful!"
 	) || (
-		exit 1
+		rm -rf "$install_path"
 		fail "An error occurred while installing $TOOL_NAME $version."
 	)
 }
