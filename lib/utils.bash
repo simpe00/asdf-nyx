@@ -52,7 +52,7 @@ download_release() {
 	else
 		HARDWARE_NAME="$machine"
 	fi
-	url="$GH_REPO/releases/download/v${version}/nyx-${SYSTEM_NAME}-${HARDWARE_NAME}"
+	url="$GH_REPO/releases/download/${version}/nyx-${SYSTEM_NAME}-${HARDWARE_NAME}"
 
 	echo "* Downloading $TOOL_NAME release $version..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
