@@ -75,6 +75,9 @@ install_version() {
 		cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
 		ls "$install_path"
 
+		# Make all files in the install_path executable
+        chmod +x "$install_path"/*
+
 		# TODO: Assert nyx executable exists.
 		local tool_cmd
 		tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"
