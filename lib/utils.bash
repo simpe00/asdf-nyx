@@ -69,6 +69,7 @@ install_version() {
 
 	(
 		mkdir -p "$install_path"
+		echo "copy from $ASDF_DOWNLOAD_PATH to $install_path"
 		cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
 
 		# TODO: Assert nyx executable exists.
